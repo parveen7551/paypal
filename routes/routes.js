@@ -27,8 +27,8 @@ exports.create = function (req, res) {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "/success",
-            "cancel_url": "/cancel"
+            "return_url": "http://localhost:5000/success",
+            "cancel_url": "http://localhost:5000/cancel"
         },
         "transactions": [{
             "amount": {
@@ -70,7 +70,7 @@ exports.execute = function (req, res) {
         if (error) {
             console.log(error);
         } else {
-            res.send("Hell yeah!");
+            res.send({message:"Hell yeah!",data:payment});
         }
     });
 };
