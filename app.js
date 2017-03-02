@@ -9,6 +9,8 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 var http = require('http');
 
+var session = require('express-session');
+
 
 var app = express();
 
@@ -34,12 +36,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(session({ secret: 'keyboard cat', key: 'sid' }));
 
 app.get('/', routes.index);
-app.get('/create', routes.create);
+app.post('/create', routes.create);
 app.get('/cancel', routes.cancel);
-app.get('/execute', routes.execute);
+app.get('/success', routes.execute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -58,7 +60,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-var port = '3100'
+var port = Number(process.env.PORT || 5000);
 
 http.createServer(app).listen(port, function () {
   console.log('Express server listening on port ' + port);

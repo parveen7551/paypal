@@ -1,6 +1,5 @@
 var paypal = require('paypal-rest-sdk');
 var config = {};
-
 /*
  * GET home page.
  */
@@ -19,28 +18,24 @@ exports.init = function (c) {
 }
 
 exports.create = function (req, res) {
+    var amount =  req.body.amount;
+    var currency = req.body.currency;
+    var description = req.body.description;
     var payment = {
         "intent": "sale",
         "payer": {
-            "payment_method": "credit_card",
-            "funding_instruments": [{
-                "credit_card": {
-                    "number": "5500005555555559",
-                    "type": "mastercard",
-                    "expire_month": 12,
-                    "expire_year": 2018,
-                    "cvv2": 111,
-                    "first_name": "Joe",
-                    "last_name": "Shopper"
-                }
-            }]
+            "payment_method": "paypal"
+        },
+        "redirect_urls": {
+            "return_url": "/success",
+            "cancel_url": "/cancel"
         },
         "transactions": [{
             "amount": {
-                "total": "5.00",
-                "currency": "USD"
+                "total":parseInt(amount),
+                "currency":  currency
             },
-            "description": "My awesome payment"
+            "description": description
         }]
     };
     paypal.payment.create(payment, function (error, payment) {
