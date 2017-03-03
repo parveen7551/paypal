@@ -18,9 +18,9 @@ exports.init = function (c) {
 }
 
 exports.create = function (req, res) {
-    var amount =  req.body.amount;
-    var currency = req.body.currency;
-    var description = req.body.description;
+    var amount =  29;//req.body.amount;//Fixed amount
+    var currency = 'USD'; //req.body.currency; //USD
+    var description = 'Clearly next membership.'//req.body.description;
     var payment = {
         "intent": "sale",
         "payer": {

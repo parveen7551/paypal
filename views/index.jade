@@ -4,31 +4,32 @@ html(lang='en')
         meta(charset='utf-8')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         meta(name='viewport', content='width=device-width, initial-scale=1')
-        title INTEGRATE PAYPAL PAYMENT GATEWAY IN NODEJS
+        title Check out with Paypal
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
     body
-        .panel.panel-primary(style='width:50%;margin:0 auto; margin-top:10%')
+
+        .panel.panel-default(style='width:50%;margin:0 auto; margin-top:10%')
             .panel-heading
-                h3 Paypal Payment Gateway in NodeJs
+                h3 Checkout with PayPal
             .panel-body(style='height:40%; text-align:center;')
                 p#msg.bg-info
                 form#paypalForm.form-horizontal(role='form', method='post', action='/create')
-                    .form-group
+                    //.form-group
                         label.control-label.col-sm-2(for='amount') Amount:
                         .col-sm-10
                             input.form-control(type='text', name='amount', placeholder='Enter Amount', required='required', value='10')
-                    .form-group
+                    //.form-group
                         label.control-label.col-sm-2(for='currency') Currency:
                         .col-sm-10
                             input.form-control(type='text', name='currency', placeholder='Enter Currency Type', value='USD', required='required')
-                    .form-group
+                    //.form-group
                         label.control-label.col-sm-2(for='description') Description:
                         .col-sm-10
                             textarea.form-control(name='description', placeholder='Enter Description') My First Payment
                     .form-group
                         .col-sm-offset-2.col-sm-10
-                            button#send.btn.btn-primary.btn-lg(type='submit')
-                                span.glyphicon.glyphicon-send
-                                |  Pay Now
+                            button.btn.btn-default#send(type='submit')
+                                span
+                                    img(src='https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png', alt='Check out with PayPal',type='submit')
         script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js')
