@@ -13,7 +13,7 @@ html(lang='en')
                 h3 Checkout with PayPal
             .panel-body(style='height:40%; text-align:center;')
                 p#msg.bg-info
-                form#paypalForm.form-horizontal(role='form', method='post', action='/create')
+                form#paypalForm.form-horizontal(role='form', method='post', action='/createagreement')
                     //.form-group
                         label.control-label.col-sm-2(for='amount') Amount:
                         .col-sm-10
@@ -30,6 +30,6 @@ html(lang='en')
                         .col-sm-offset-2.col-sm-10
                             button.btn.btn-default#send(type='submit')
                                 span
-                                    img(src='https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png', alt='Check out with PayPal',type='submit')
+                                    <img src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/silver-rect-paypalcheckout-34px.png" alt="PayPal Checkout">
         script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js')

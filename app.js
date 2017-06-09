@@ -43,6 +43,10 @@ app.post('/create', routes.create);
 app.get('/cancel', routes.cancel);
 app.get('/success', routes.execute);
 
+
+//
+app.post('/createagreement',routes.createAgreement);
+app.get('/processagreement',routes.processAgreement);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
