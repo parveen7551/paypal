@@ -1,7 +1,8 @@
 var paypal = require('paypal-rest-sdk');
 var url = require('url');
 
-var config = {};
+// var config ="";
+var config1 ="";
 /*
  * GET home page.
  */
@@ -80,7 +81,7 @@ exports.execute = function (req, res) {
 
 
 //For billing agreement between the buyer and paypal.
-exports.createAgreement = function (req, res) {
+exports.createAgreement = function (req1, res) {
     var d = new Date(Date.now() + 1*60*1000);
     d.setSeconds(d.getSeconds() + 4);
     var isDate = d.toISOString();
