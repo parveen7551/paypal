@@ -69,7 +69,7 @@ exports.execute = function (req, res) {
 
     var details = {"payer_id": payerId};
     paypal.payment.execute(paymentId, details, function (error, payment) {
-        if (error) {
+        if (err) {
             console.log(error);
         } else {
             res.send({message:"Hell yeah!",data:payment});
@@ -84,7 +84,7 @@ exports.createAgreement = function (req, res) {
     var d = new Date(Date.now() + 1*60*1000);
     d.setSeconds(d.getSeconds() + 4);
     var isDate = d.toISOString();
-    var isoDate = isDate.slice(0, 19) + 'Z';
+    var isoDate = isDate.slice(0, 19) + "Z";
 
     var billingPlanAttributes = {
         "description": "Clearly Next Subscription.",
@@ -209,7 +209,7 @@ exports.createAgreement = function (req, res) {
 
                     // Use activated billing plan to create agreement
                     paypal.billingAgreement.create(billingAgreementAttributes, function (error, billingAgreement) {
-                        if (error) {
+                        if (err) {
                             console.log(error);
                             throw error;
                         } else {
